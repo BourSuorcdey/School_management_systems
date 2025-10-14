@@ -89,13 +89,15 @@ class StudentsTable extends DataTableComponent
             Column::make(__('No'), 'id')
                 ->sortable(),
             Column::make(__('Name'))
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
             Column::make(__('Age'))
                 ->sortable(),       
             Column::make(__('Gender'))
                 ->sortable(),
             Column::make(__('Email'), 'email')
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
             Column::make(__('Image')),
             Column::make(__('Actions')),
         ];

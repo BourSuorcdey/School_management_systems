@@ -89,7 +89,8 @@ class TeachersTable extends DataTableComponent
             Column::make(__('No'), 'id')
                 ->sortable(),
             Column::make(__('Name'))
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
             Column::make(__('Age'))
                 ->sortable(),
             Column::make(__('Gender'))
