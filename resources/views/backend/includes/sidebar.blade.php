@@ -17,6 +17,22 @@
                 icon="c-sidebar-nav-icon cil-speedometer"
                 :text="__('Dashboard')" />
         </li>
+        <li class="c-sidebar-nav-item">
+            <x-utils.link
+                class="c-sidebar-nav-link"
+                :href="route('admin.student.index')"
+                :active="activeClass(Route::is('admin.student.index'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-folder"
+                :text="__('Student')" />
+        </li>
+        <li class="c-sidebar-nav-item">
+            <x-utils.link
+                class="c-sidebar-nav-link"
+                :href="route('admin.teacher.index')"
+                :active="activeClass(Route::is('admin.teacher.index'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-folder"
+                :text="__('Teacher')" />
+        </li>
 
         @if (
             $logged_in_user->hasAllAccess() ||
