@@ -35,7 +35,7 @@ class StudentService extends BaseService
         } else {
             $data['image'] = null;
         }
-        dd($data);
+        //dd($data);
         $this->model->create([
             "name"      => $data["name"],
             "age"       => $data["age"],
