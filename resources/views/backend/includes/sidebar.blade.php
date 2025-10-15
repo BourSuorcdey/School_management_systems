@@ -33,6 +33,14 @@
                 icon="c-sidebar-nav-icon cil-folder"
                 :text="__('Teacher')" />
         </li>
+        <li class="c-sidebar-nav-item">
+            <x-utils.link
+                class="c-sidebar-nav-link"
+                :href="route('admin.classroom.index')"
+                :active="activeClass(Route::is('admin.classroom.index'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-folder"
+                :text="__('Classroom')" />
+        </li>
 
         @if (
             $logged_in_user->hasAllAccess() ||

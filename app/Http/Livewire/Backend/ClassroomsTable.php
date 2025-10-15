@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Backend;
 
-use App\Domains\Student\Models\Student;
+use App\Domains\Classroom\Models\Classroom;
 use App\Domains\Auth\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
@@ -12,7 +12,7 @@ use Rappasoft\LaravelLivewireTables\Views\Filter;
 /**
  * Class UsersTable.
  */
-class StudentsTable extends DataTableComponent
+class ClassroomsTable extends DataTableComponent
 {
     /**
      * @var
@@ -48,7 +48,7 @@ class StudentsTable extends DataTableComponent
      */
     public function query(): Builder
     {
-        $query = Student::query();
+        $query = Classroom::query();
 
         return $query;
     }
@@ -91,15 +91,6 @@ class StudentsTable extends DataTableComponent
             Column::make(__('Name'))
                 ->sortable()
                 ->searchable(),
-            Column::make(__('Age'))
-                ->sortable()
-                ->searchable(),       
-            Column::make(__('Gender'))
-                ->sortable(),
-            Column::make(__('Email'), 'email')
-                ->sortable()
-                ->searchable(),
-            Column::make(__('Image')),
             Column::make(__('Actions')),
         ];
     }
@@ -109,6 +100,6 @@ class StudentsTable extends DataTableComponent
      */
     public function rowView(): string
     {
-        return 'backend.student.includes.row';
+        return 'backend.classroom.includes.row';
     }
 }

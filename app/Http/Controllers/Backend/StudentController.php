@@ -6,7 +6,6 @@ use App\Domains\Student\Models\Student;
 use App\Domains\Student\Services\StudentService;
 use App\Http\Requests\Backend\StoreStudentRequest;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class StudentController
 {
