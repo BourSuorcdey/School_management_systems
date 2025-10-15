@@ -41,6 +41,7 @@ class Student extends Model
     const FEMALE = 'female';
 
     public function classrooms(){
-        return $this->belongsToMany(Classroom::class, 'class_has_students');
+        return $this->belongsToMany(Classroom::class, 'class_has_students')
+                    ->withPivot(['teacher_id', 'start_time', 'end_time']);
     }
 }

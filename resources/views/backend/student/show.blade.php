@@ -54,16 +54,35 @@
                     <td>{{ $student->email }}</td>
                 </tr>
                 <tr>
-                    <th>@lang('Classroom')</th>
-                    <td>
-                        @foreach ($student->classrooms as $classroom)
-                            <div class="btn btn-dribbble">
-                                <a href="{{ route('admin.classroom.show', $classroom->id) }}">{{ $classroom->name }}</a>
-                            </div> 
-                        @endforeach
-                    </td>
+                    <th>@lang('Classroom Information')</th>
+                    <td></td>
                 </tr>
-                
+            </table>
+
+            <table class="table table-hover">
+                <Thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Classroom Name</th>
+                        <th>Teacher Name</th>
+                        <th>Start Time</th>
+                        <th>End time</th>
+                    </tr>
+                </Thead>
+                <tbody>
+                    @foreach ($student->classrooms as $index => $classroom)
+                        @php
+                            $teacher = App\Domains\Teacher\Models\Teacher::find($classroom->pivot->teacher_id);
+                        @endphp
+                        <tr>
+                            <td>{{ $index + 1 }}</td>
+                            <td>{{ $classroom->name ?? 'N/A' }}</td>
+                            <td>{{ $teacher->name ?? 'N/A' }}</td>
+                            <td>{{ $classroom->pivot->start_time ?? 'N/A' }}</td>
+                            <td>{{ $classroom->pivot->end_time ?? 'N/A' }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
             </table>
         </x-slot>
     </x-backend.card>

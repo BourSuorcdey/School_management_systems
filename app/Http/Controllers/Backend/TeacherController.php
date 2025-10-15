@@ -48,7 +48,7 @@ class TeacherController
     }
 
      public function show($id) {
-        $teacher = Teacher::findOrFail( $id );
+        $teacher = Teacher::with( 'classrooms')->findOrFail($id);
         return view("backend.teacher.show", compact("teacher"));   
     }
 

@@ -50,7 +50,7 @@ class ClassroomController
         return redirect()->route("admin.classroom.index")->with("success","Classroom has been deleted!");
     }
     public function show($id) {
-        $classroom = Classroom::with('teachers')->findOrFail( $id );
+        $classroom = Classroom::with('teachers', 'students')->findOrFail( $id );
         return view('backend.classroom.show', compact('classroom'));   
     }
 
